@@ -1,0 +1,16 @@
+<img src="" alt="" class="img-product" id="file-preview"/>
+<input type="file" name="image" accept="image/*" onchange="showFile(event)">
+
+<script>
+    function showFile(event){
+        var input = event.target;
+        var reader = new FileReader();
+
+        reader.onload = function(){
+            var dataURL = reader.result;
+            var output = document.getElementById('file-preview');
+            output.src = dataURL;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+</script>
